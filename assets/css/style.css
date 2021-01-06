@@ -38,6 +38,11 @@ header p {
   font-size: 2rem;
 }
 
+section {
+  flex: 1;
+  
+}
+
 p,
 li {
   font-size: 1.6rem;
@@ -100,6 +105,7 @@ footer {
 }
 
 .task-list {
+  display: flex;
   list-style: none;
   padding: 15px;
   height: calc(100% - 50px);
