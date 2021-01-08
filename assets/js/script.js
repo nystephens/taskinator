@@ -189,7 +189,7 @@ let dropZoneDragHandler = function(event) {
 
     if (taskListEl){
         event.preventDefault();
-
+        taskListEl.setAttribute("style", "background: rbga(68, 233, 255, 0.7); border-style: dashed;");
     }
 };
 
@@ -210,7 +210,15 @@ let dropTaskHandler = function(event) {
       statusSelectEl.selectedIndex = 2;
     }
 
+    dropZoneEl.removeAttribute("styles");
     dropZoneEl.appendChild(draggableElement);
+};
+
+let dragLeaveHandler = function(event) {
+  let taskListEl = event.target.closest(".task-list");
+  if (taskListEl) {
+    taskListEl.removeAttribute("style");
+  }
 };
 
 // Create a new task
@@ -230,3 +238,5 @@ pageContentEl.addEventListener("dragover", dropZoneDragHandler);
 
 // drop listener
 pageContentEl.addEventListener("drop", dropTaskHandler);
+
+pageContentEl.addEventListener("dragleave", dragLeaveHandler);
